@@ -1,3 +1,17 @@
 .upcoming-launch {
-    background: linear-gradient(lightseagreen, slategrey);
+    height: 100%;
+    background: linear-gradient(to right, #24c5bb, #495864);
+    color: #ffffff;
+    text-align: center;
+    position:relative;
+
+    .nav-icon {
+        height: 40px;
+        width: 40px;
+        position: fixed;
+        top: calc(100vh - 60px);
+        left: calc(50vw - 40px);
+        z-index: 1000;
+        color: #ffffff;
+    }
 }

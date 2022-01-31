@@ -4,7 +4,7 @@ export enum Unit {
   Days = "DAYS",
   Hours = "HOURS",
   Minutes = "MINUTES",
-  Seconds = "SEcONDS",
+  Seconds = "SECONDS",
 }
 
 function TimeUnit({ time, unit }: { time: number; unit: Unit }) {
