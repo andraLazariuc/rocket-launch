@@ -118,7 +118,7 @@ test("renders a countdown", async () => {
     await new Promise((resolve) => setTimeout(resolve, 0));
   });
 
-  const countdownHtmlElements = screen.getAllByTestId("countdown");
+  const countdownHtmlElements = await screen.findAllByTestId("countdown");
   expect(countdownHtmlElements).toHaveLength(1);
 });
 

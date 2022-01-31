@@ -1,0 +1,22 @@
+.launchRow {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    color: #ffffff;
+
+    .launch-column-mission {
+        flex: 1 1 30%;
+    }
+
+    .launch-column-bookmarked {
+        flex: 1 1 10%;
+    }
+    
+    .launch-column-date {
+        flex: 1 1 30%;
+    }
+    
+    .launch-column-launchpad {
+        flex: 1 1 30%;
+    }
+}
