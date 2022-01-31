@@ -1,0 +1,22 @@
+.launchTableHeader {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    color: #ffffff;
+
+    .launch-header-label:nth-of-type(1) {
+        flex: 1 1 30%;
+    }
+
+    .launch-header-label:nth-of-type(2) {
+        flex: 1 1 10%;
+    }
+    
+    .launch-header-label:nth-of-type(3) {
+        flex: 1 1 30%;
+    }
+    
+    .launch-header-label:nth-of-type(4) {
+        flex: 1 1 30%;
+    }
+}

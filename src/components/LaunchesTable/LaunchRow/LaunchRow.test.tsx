@@ -2,21 +2,16 @@ import ReactDOM from "react-dom";
 import { cleanup, render, screen } from "@testing-library/react";
 
 import LaunchRow from "./LaunchRow";
-import { dateFormatingOptions } from "../../utils/timeFormatters";
+import { dateFormatingOptions } from "../../../utils/timeFormatters";
 
 const testProps = {
-  mission_name: "Starlink 6",
-  launch_date_utc: new Date("2022-12-06T16:17:00.000Z"),
-  launchpad: "KSC",
-  bookmarked: false,
+  launch: {
+    mission_name: "Starlink 6",
+    launch_date_utc: new Date("2022-12-06T16:17:00.000Z"),
+    launchpad: "KSC",
+    bookmarked: false,
+  },
 };
-
-const testPropsOrder = [
-  "mission_name",
-  "bookmarked",
-  "launch_date_utc",
-  "launchpad",
-];
 
 afterEach(cleanup);
 
@@ -42,7 +37,7 @@ test("renders correct data for 1st column", () => {
   render(<LaunchRow {...testProps} />);
   const launchRowColumnHtmlElements = screen.getAllByTestId("launch-row-field");
   expect(launchRowColumnHtmlElements[0]).toHaveTextContent(
-    testProps.mission_name
+    testProps.launch.mission_name
   );
 });
 
@@ -58,7 +53,7 @@ test("renders correct data for 3rd column", () => {
   const launchRowColumnHtmlElements = screen.getAllByTestId("launch-row-field");
 
   expect(launchRowColumnHtmlElements[2]).toHaveTextContent(
-    testProps.launch_date_utc.toLocaleDateString("en-US", dateFormatingOptions)
+    testProps.launch.launch_date_utc.toLocaleDateString("en-US", dateFormatingOptions)
   );
 });
 
@@ -66,5 +61,5 @@ test("renders correct data for 4th column", () => {
   render(<LaunchRow {...testProps} />);
   const launchRowColumnHtmlElements = screen.getAllByTestId("launch-row-field");
 
-  expect(launchRowColumnHtmlElements[3]).toHaveTextContent(testProps.launchpad);
+  expect(launchRowColumnHtmlElements[3]).toHaveTextContent(testProps.launch.launchpad);
 });
