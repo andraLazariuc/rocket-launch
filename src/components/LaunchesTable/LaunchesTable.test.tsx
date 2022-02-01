@@ -6,16 +6,16 @@ import LaunchesTable from "./LaunchesTable";
 const testProps = {
   launches: [
     {
+      id: "ID 1",
       mission_name: "Starlink 6",
       launch_date_utc: new Date("2022-11-06T16:17:00.000Z"),
       launchpad: "WBS",
-      bookmarked: false,
     },
     {
+      id: "ID 2",
       mission_name: "Starlink 7",
       launch_date_utc: new Date("2022-12-06T16:17:00.000Z"),
       launchpad: "KSC",
-      bookmarked: false,
     },
   ],
 };

@@ -1,3 +1,9 @@
+# React, TypeScript, Apollo GhraphQL client, React Testing Library
+
+Followed tutorials for Apollo client and React testing library found on the official docs. 
+
+First try on TDD using Rita Castro's presentation guidelines "Building the Right Product and Building It Right: Extreme Programming and Atomic Design" (https://portal.gitnation.org/contents/building-the-right-product-and-building-it-right-extreme-programming-and-atomic-design)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

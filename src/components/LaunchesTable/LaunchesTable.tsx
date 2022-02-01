@@ -3,6 +3,7 @@ import TableRow from "./LaunchRow/LaunchRow";
 import "./LaunchesTable.scss";
 
 export type Launch = {
+  id: string;
   mission_name: string;
   launch_date_utc: Date;
   launchpad: string;

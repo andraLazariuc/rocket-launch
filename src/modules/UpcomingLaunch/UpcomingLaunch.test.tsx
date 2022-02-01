@@ -4,10 +4,9 @@ import { GET_NEXT_LAUNCH_QUERY } from "../../api/graphql/queries/launches";
 
 import UpcomingLaunch from "./UpcomingLaunch";
 
-const testDate = new Date("2022-03-07T04:50:31.000Z");
 const testLaunch = {
-  launch_date_utc: testDate,
-  mission_name: "SXM-8",
+  mission_name: "SXM-7",
+  launch_date_utc: new Date("2022-12-13T17:30:00.000Z"),
 };
 
 const mockedGraphqlErrorText = "An error occurred";
@@ -15,7 +14,6 @@ const mockedQueryWithError = [
   {
     request: {
       query: GET_NEXT_LAUNCH_QUERY,
-      variables: {},
     },
     error: new Error(mockedGraphqlErrorText),
   },
@@ -24,7 +22,6 @@ const mockedQuery = [
   {
     request: {
       query: GET_NEXT_LAUNCH_QUERY,
-      variables: {},
     },
     result: {
       data: {
@@ -85,7 +82,10 @@ test("renders correctly query success state", async () => {
     await new Promise((resolve) => setTimeout(resolve, 0));
   });
 
-  const upcomingLaunchHtmlElement = screen.queryByTestId("upcoming-launch");
+  const upcomingLaunchHtmlElement = await screen.findByTestId(
+    "upcoming-launch"
+  );
+
   expect(upcomingLaunchHtmlElement).toBeInTheDocument();
   expect(upcomingLaunchHtmlElement).toHaveClass("upcoming-launch");
 });
@@ -122,8 +122,17 @@ test("renders a countdown", async () => {
   expect(countdownHtmlElements).toHaveLength(1);
 });
 
-// test("renders a navigation arrow", () => {
-//   render(<UpcomingLaunch />);
-//   const navigationIconHtmlElements = screen.getAllByTestId("nav-icon");
-//   expect(navigationIconHtmlElements).toHaveLength(1);
-// });
+test("renders a navigation arrow", async () => {
+  render(
+    <MockedProvider mocks={mockedQuery} addTypename={false}>
+      <UpcomingLaunch />
+    </MockedProvider>
+  );
+
+  await act(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 0));
+  });
+
+  const navigationIconHtmlElements = await screen.findAllByTestId("nav-icon");
+  expect(navigationIconHtmlElements).toHaveLength(1);
+});

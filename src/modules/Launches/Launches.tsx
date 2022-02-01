@@ -1,10 +1,19 @@
 import { useQuery } from "@apollo/client";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import { GET_UPCOMING_LAUNCHES_QUERY } from "../../api/graphql/queries/launches";
 import navIconUp from "../../assets/upArrow.svg";
 import LaunchesTable from "../../components/LaunchesTable/LaunchesTable";
 import "./Launches.scss";
+
+export type UpcomingLaunch = {
+  id: string;
+  mission_name: string;
+  launch_site: {
+    site_name: string;
+  };
+  launch_date_utc: Date;
+};
 
 function Launches({ onNavIconClick }: { onNavIconClick?: () => void }) {
   const { loading, error, data, startPolling, stopPolling } = useQuery(
@@ -38,11 +47,21 @@ function Launches({ onNavIconClick }: { onNavIconClick?: () => void }) {
     );
 
   const { launchesUpcoming } = data;
-  const launches = launchesUpcoming.map((launch: any) => {
-    const { mission_name, launch_date_utc, launch_site } = launch;
 
-    return { mission_name, launch_date_utc, launchpad: launch_site.site_name };
-  });
+  const formatLaunches = (launches: UpcomingLaunch[]) =>
+    launches.map((launch: any) => {
+      const { id, mission_name, launch_date_utc, launch_site } = launch;
+
+      return {
+        // API is sending launches with same id
+        id: `${id}-${mission_name}`,
+        mission_name,
+        launch_date_utc,
+        launchpad: launch_site.site_name,
+      };
+    });
+
+  const launches = formatLaunches(launchesUpcoming);
 
   return (
     <div data-testid="launches" className="launches">
