@@ -3,7 +3,7 @@ import { Unit } from "../components/TimeUnit/TimeUnit";
 const DAY_UNIT_IN_SECONDS = 24 * 60 * 60;
 const HOUR_UNIT_IN_SECONDS = 60 * 60;
 
-export const dateFormatingOptions = {day: "numeric", month: "long", year: "numeric" } as Intl.DateTimeFormatOptions;
+export const dateFormatingOptions = {day: "numeric", month: "short", year: "numeric" } as Intl.DateTimeFormatOptions;
 
 export const formatDateInTimeUnits = (deadline: Date) => {
   let diffInSeconds = Math.abs(new Date(deadline).getTime() - new Date().getTime()) / 1000;

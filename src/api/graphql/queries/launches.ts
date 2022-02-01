@@ -17,3 +17,15 @@ export const GET_NEXT_LAUNCH_QUERY = gql `
     }
   }
 `;
+
+export const GET_UPCOMING_LAUNCHES_QUERY = gql `
+  query launchesUpcoming {
+    launchesUpcoming {
+      mission_name
+      launch_site {
+        site_name
+        }
+      launch_date_utc
+    }
+  }
+`;

@@ -1,6 +1,9 @@
 import { useState } from "react";
-import "./App.css";
+
+import Launches from "./modules/Launches/Launches";
 import UpcomingLaunch from "./modules/UpcomingLaunch/UpcomingLaunch";
+
+import "./App.css";
 
 export const SECTIONS = { UPCOMING_LAUNCH: 1, LAUNCHES: 2 };
 
@@ -15,7 +18,11 @@ function App() {
             onNavIconClick={() => setActiveSection(SECTIONS.LAUNCHES)}
           />
         )}
-        {activeSection === SECTIONS.LAUNCHES && <div>Launches List</div>}
+        {activeSection === SECTIONS.LAUNCHES && (
+          <Launches
+            onNavIconClick={() => setActiveSection(SECTIONS.UPCOMING_LAUNCH)}
+          />
+        )}
       </div>
     </div>
   );

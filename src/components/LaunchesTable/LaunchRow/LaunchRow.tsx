@@ -12,19 +12,22 @@ function LaunchRow({ launch }: { launch: Launch }) {
 
   return (
     <div data-testid="launch-row" className="launch-row">
-      <span data-testid="launch-row-field" className="launch-column-mission">
+      <div data-testid="launch-row-field" className="launch-row-field">
         {mission_name}
-      </span>
-      <span data-testid="launch-row-field" className="launch-column-bookmark">
+      </div>
+      <div data-testid="launch-row-field" className="launch-row-field">
         {/* {bookmarked && starIcon} */}
-      </span>
-      <span data-testid="launch-row-field" className="launch-column-date">
+      </div>
+      <div data-testid="launch-row-field" className="launch-row-field">
         {/* TODO: check date format */}
-        {launch_date_utc.toLocaleDateString("en-US", dateFormatingOptions)}
-      </span>
-      <span data-testid="launch-row-field" className="launch-column-launchpad">
+        {new Date(launch_date_utc).toLocaleDateString(
+          "en-US",
+          dateFormatingOptions
+        )}
+      </div>
+      <div data-testid="launch-row-field" className="launch-row-field">
         {launchpad}
-      </span>
+      </div>
     </div>
   );
 }

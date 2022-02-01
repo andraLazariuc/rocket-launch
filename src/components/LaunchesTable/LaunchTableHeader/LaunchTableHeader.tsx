@@ -4,13 +4,13 @@ function LaunchTableHeader({ labels }: { labels: string[] }) {
   return (
     <div data-testid="launch-table-header" className="launch-table-header">
       {labels.map((label) => (
-        <span
+        <div
           data-testid="launch-header-label"
           className="launch-header-label"
           key={`label ${label}`}
         >
           {label}
-        </span>
+        </div>
       ))}
     </div>
   );

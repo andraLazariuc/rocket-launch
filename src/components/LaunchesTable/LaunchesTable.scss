@@ -1,5 +1,10 @@
 .launch-table {
     width: 80%;
-    height: 100%;
     background-color: #342635;
+    border: 4px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(to right, #8c4675, #301d3c);
+    padding: 40px 8px;
+    flex-basis: 70%;
 }

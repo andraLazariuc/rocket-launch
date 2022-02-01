@@ -1,8 +1,9 @@
-.launchTableHeader {
+.launch-table-header {
     display: flex;
     justify-content: space-between;
     text-align: left;
     color: #ffffff;
+    width: 100%;
 
     .launch-header-label:nth-of-type(1) {
         flex: 1 1 30%;

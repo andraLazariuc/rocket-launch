@@ -1,0 +1,24 @@
+.launches {
+    background: linear-gradient(to right, #aa5288, #431757);
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+
+    h1 {
+        flex-basis: 43px;
+    }
+
+    .nav-icon {
+        height: 40px;
+        width: 40px;
+        position: fixed;
+        top: calc(100vh - 60px);
+        left: calc(50vw -20px);
+        z-index: 1000;
+    }
+}
